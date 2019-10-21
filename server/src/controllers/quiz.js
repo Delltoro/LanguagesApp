@@ -4,7 +4,7 @@ module.exports = {
     getQuizById: async (req , res) => {
         try {
             const quiz = await Quiz.findById(req.params.id);
-            if(!question) return res.status(404).send('Quiz not found');
+            if(!quiz) return res.status(404).send('Quiz not found');
         }catch(err) {
             res.status(500).send('An error occured');
         }
@@ -40,9 +40,9 @@ module.exports = {
 
     deleteQuiz: async (req, res) => {
         try {
-            const question = await Question.findByIdAndRemove(req.params.id);
-            if (!question) return res.status(404).send('question not found.');
-            res.send(question);
+            const quiz = await Quiz.findByIdAndRemove(req.params.id);
+            if (!quiz) return res.status(404).send('Quiz not found.');
+            res.send(quiz);
           } catch (error) {
               res.status(500).send('An error occured.');
           }
