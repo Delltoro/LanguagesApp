@@ -31,6 +31,7 @@ function validateQuestion(question) {
         correctAnswer: Joi.number().required(),
         pointsForCorrectAnswer: Joi.number().required()
     }
+    return Joi.validate(question,schema);
 }
 
 exports.Question = Question;
