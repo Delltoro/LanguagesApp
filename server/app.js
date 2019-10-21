@@ -2,7 +2,7 @@
 import db from './src/data/db';
 import express from 'express';
 import questions from './src/routes/questions';
-
+import quizes from './src/routes/quizes';
 
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
@@ -11,9 +11,6 @@ import cors from 'cors';
 
 const app = express();
 app.set('port' , 8080);
-app.get('/', (req,res)=>{
-    res.send('hiho');
-})
 
 
 app.use(bodyParser.json());
@@ -28,7 +25,7 @@ app.use(cors({
 app.use(morgan('tiny'));
 app.use(helmet());
 app.use('/api/questions' , questions);
-
+app.use('/api/quizes' , quizes);
 let server = app.listen(app.get('port') , () => {
     console.log(`Server working on port ' ${server.address().port}`);
 });
