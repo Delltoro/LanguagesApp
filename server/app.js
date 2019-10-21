@@ -1,12 +1,11 @@
 // MONGO 1
-import mongoose from 'mongoose';
-import fawn from 'fawn';
+import db from './src/data/db';
 import express from 'express';
+
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import cors from 'cors';
-import db from './src/data/db';
 
 const app = express();
 const host = '127.0.0.1';
@@ -14,7 +13,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }))
-
+app.use(cors({
+    origin: true,
+    credentials: true
+}))
 app.use(morgan('tiny'));
 app.use(helmet() , () =>{
     console.log('Helmet ON HEAD !');
