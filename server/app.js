@@ -1,6 +1,8 @@
 // MONGO 1
 import db from './src/data/db';
 import express from 'express';
+import questions from './src/routes/questions';
+
 
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
@@ -8,8 +10,14 @@ import morgan from 'morgan';
 import cors from 'cors';
 
 const app = express();
-const host = '127.0.0.1';
+app.set('port' , 8080);
+app.get('/', (req,res)=>{
+    res.send('hiho');
+})
+
+
 app.use(bodyParser.json());
+
 app.use(bodyParser.urlencoded({
     extended: true
 }))
@@ -18,12 +26,11 @@ app.use(cors({
     credentials: true
 }))
 app.use(morgan('tiny'));
-app.use(helmet() , () =>{
-    console.log('Helmet ON HEAD !');
-})
-app.set('port' , 3000);
+app.use(helmet());
+app.use('/api/questions' , questions);
+
 let server = app.listen(app.get('port') , () => {
-    console.log(`Server working on port ' ${host} ${server.address().port}`);
+    console.log(`Server working on port ' ${server.address().port}`);
 });
 
 
