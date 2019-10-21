@@ -1,5 +1,7 @@
-import mongoose from 'mongoose';
+// MONGO 1
+import db from './src/data/db';
 import express from 'express';
+
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
 import morgan from 'morgan';
@@ -11,7 +13,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }))
-
+app.use(cors({
+    origin: true,
+    credentials: true
+}))
 app.use(morgan('tiny'));
 app.use(helmet() , () =>{
     console.log('Helmet ON HEAD !');
