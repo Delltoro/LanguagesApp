@@ -1,16 +1,7 @@
 import { Question , validate } from '../model/question';
 
 module.exports = {
-    getQuestionById: async (req , res) => {
-        try {
-            const question = await Question.findById(req.params.id);
-            if(!question) return res.status(404).send('Question not found');
-        }catch(err) {
-            res.status(500).send('An error occured');
-        }
-    },
-
-    getQuestions: async (req , res) => {
+    index: async (req , res) => {
         try {
             const questions = await Question.find();
             res.send(questions);
@@ -19,8 +10,17 @@ module.exports = {
         }
   
     },
-    
-    addQuestion: async (req , res) => {
+
+    show: async (req , res) => {
+        try {
+            const question = await Question.findById(req.params.id);
+            if(!question) return res.status(404).send('Question not found');
+        }catch(err) {
+            res.status(500).send('An error occured');
+        }
+    },
+
+    store: async (req , res) => {
         try {
             console.log(req.body);
            const { error } = validate(req.body);
@@ -39,7 +39,7 @@ module.exports = {
         }
     },
 
-    deleteQuestion: async (req, res) => {
+    destroy: async (req, res) => {
         try {
             const question = await Question.findByIdAndRemove(req.params.id);
             if (!question) return res.status(404).send('question not found.');

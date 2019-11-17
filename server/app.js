@@ -3,7 +3,7 @@ import db from './src/data/db';
 import express from 'express';
 import questions from './src/routes/questions';
 import quizes from './src/routes/quizes';
-
+import users from './src/routes/users';
 import bodyParser from 'body-parser';
 import helmet from 'helmet';
 import morgan from 'morgan';
@@ -26,6 +26,7 @@ app.use(morgan('tiny'));
 app.use(helmet());
 app.use('/api/questions' , questions);
 app.use('/api/quizes' , quizes);
+app.use('/api/users' , users);
 let server = app.listen(app.get('port') , () => {
     console.log(`Server working on port ' ${server.address().port}`);
 });
