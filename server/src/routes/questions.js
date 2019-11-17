@@ -3,13 +3,14 @@ const router = express.Router();
 import questionController from '../controllers/question';
 
 router
-    .route('/')
-    .get(questionController.getQuestions)
-    .post(questionController.addQuestion)
+    .route('/questions')
+    .get(questionController.index)
+    .post(questionController.store)
 
 router
-    .route('/:id')
-    .get(questionController.getQuestionById)
-    .delete(questionController.deleteQuestion);
+    .route('questions/:id')
+    .get(questionController.show)
+    .delete(questionController.destroy)
+    .edit(questionController.update);
 
 module.exports = router;
