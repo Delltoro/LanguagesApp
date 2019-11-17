@@ -1,7 +1,7 @@
 import { Question , validate } from '../model/question';
 
 module.exports = {
-    index: async (req , res) => {
+    getQuestions: async (req , res) => {
         try {
             const questions = await Question.find();
             res.send(questions);
@@ -11,7 +11,7 @@ module.exports = {
   
     },
 
-    show: async (req , res) => {
+    getQuestionById: async (req , res) => {
         try {
             const question = await Question.findById(req.params.id);
             if(!question) return res.status(404).send('Question not found');
@@ -20,7 +20,7 @@ module.exports = {
         }
     },
 
-    store: async (req , res) => {
+    addQuestion: async (req , res) => {
         try {
             console.log(req.body);
            const { error } = validate(req.body);
@@ -39,7 +39,7 @@ module.exports = {
         }
     },
 
-    destroy: async (req, res) => {
+    deleteQuestion: async (req, res) => {
         try {
             const question = await Question.findByIdAndRemove(req.params.id);
             if (!question) return res.status(404).send('question not found.');
