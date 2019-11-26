@@ -1,6 +1,6 @@
 export const colors = {
-    main: '#140827',
-    secondary: '#c4c4c4',
+    main: '#403B4A',
+    secondary: '#E7E9BB',
     secondaryTrans: 'rgba(196, 196, 196, .6)',
     ternary: '#9B4358',
     hover: '#f7b158',
