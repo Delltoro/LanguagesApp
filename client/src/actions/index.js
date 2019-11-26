@@ -1,21 +1,18 @@
-import { FETCH_QUESTION , FETCH_QUESTIONS} from "../actions/types";
+import axios from 'axios';
+import { FETCH_USER , FETCH_QUESTIONS , ADD_ONE_EXPERIENCE} from './types';
 
-import questions from '../services/questions';
-
-
-export const getQuestions = () => async dispatch => {
-  const response = await questions.get('/');
-  dispatch({
-    type: FETCH_QUESTIONS,
-    payload: response.data,
-  });
+export  const fetchUser = () => async dispatch => {
+  const res = await axios.get('/api/current_user');
+  dispatch({type: FETCH_USER , payload: res.data });
 };
 
-export const getQuestion = id => async dispatch => {
-  const response = await questions.get(`/${id}`);
-  dispatch({
-    type: FETCH_QUESTION,
-    payload: response.data,
-  });
+
+export const fetchQuestions = () => async dispatch => {
+  const res = await axios.get('/api/questions');
+  dispatch({type: FETCH_QUESTIONS , payload: res.data });
 };
 
+export const addOneExperience = () => async dispatch => {
+  const res = await axios.get('/api/current_user');
+  dispatch({type: ADD_ONE_EXPERIENCE , payload: res.data});
+};

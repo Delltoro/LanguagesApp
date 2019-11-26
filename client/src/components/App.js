@@ -1,30 +1,37 @@
 import React , {Component} from 'react';
-import { connect } from 'react-redux';
-//import { BrowserRouter as Router, Route , Link } from 'react-router-dom';
+import { BrowserRouter , Route , Link } from 'react-router-dom';
 
-import { getQuestion , getQuestions } from '../actions/index';
+import { connect } from 'react-redux';
+import * as actions from '../actions/index';
+import Landing from './Landing';
+import Quiz from './Quiz/Quiz'
+import Header from './Header';
+import Vocabulary from './Vocabulary';
+
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            questions: []
-        }
-    }
-    componentDidMount = async () => {
-        //await this.props.getQuizes();
+     
+     componentDidMount() {
+        this.props.fetchUser();
+        this.props.fetchQuestions();
     }
 
     render() {
         return (
-            <div>123</div>
-        );
+            <div className="container">
+            <BrowserRouter>
+                <div>
+                    <Header style={{marginTop: '2rem'}}></Header>
+                    <Route exact path="/" component={Landing}></Route>
+                    <Route path="/train" component={Vocabulary}></Route>
+                    <Route path="/quiz" component={Quiz} ></Route>
+                </div>
+            </BrowserRouter>
+            </div>
+       );
     };
 
 }
 
-const mapStateToProps = state => {
-    return { questions: state.questions }
-}
-
-export default connect(mapStateToProps , { getQuestion , getQuestions })(App);
+// Actions are assigned to App component as a props
+export default connect(null , actions)(App);

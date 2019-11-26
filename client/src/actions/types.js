@@ -1,5 +1,3 @@
-export const FETCH_QUIZ = 'FETCH_QUIZ';
-export const ADD_QUIZ = "ADD_QUIZ";
-
-export const FETCH_QUESTION = "FETCH_QUESTION";
-export const FETCH_QUESTIONS = "FETCH_QUESTIONS";
+export const FETCH_USER = 'fetch_user';
+export const FETCH_QUESTIONS = 'fetch_questions';
+export const ADD_ONE_EXPERIENCE = 'add_one_experience';
