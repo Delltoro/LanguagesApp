@@ -1,5 +1,5 @@
 import React , {Component} from 'react';
-import { Wrapper , Question , Answer , Answers} from './style';
+import { Wrapper , Question , Answer , Answers , listyle} from './style';
 import { connect } from 'react-redux';
 
 class Quiz extends Component {
@@ -13,21 +13,22 @@ class Quiz extends Component {
             <Wrapper>
                 <ul>
                     {this.props.questions.map( t => 
-                    <li key={t.id}>
+                    <li key={t.id} style={listyle}>
                         <Question>
                             {t.questionText}
-                            <Answers>
-                            {t.answers.map( a => 
-                                    <Answer value={a} onClick={(e) => {
-                                        alert(`You choose ${e.target.value} , correct answer is ${t.correctAnswer}`);
-                                        if(e.target.value === t.correctAnswer) {
-
-                                        }
+                        </Question>
+                        <Answers>
+                            {t.answers.map( (a , index) => 
+                                    <Answer key={index} value={a} onClick={(e) => {
+                                        console.log(typeof(index));
+                                        console.log(`Number 1 (value) + Number 1 (index) = ${t.correctAnswer + index}`)
+                                        if(Number(index + 1) === t.correctAnswer) {
+                                            alert(`Congratulations u gained ${t.pointsForCorrectAnswer} experience !`)
+                                        } else { alert(`Not good :()`)}
                                     }}>
                                         {a}
                                     </Answer>)}
                             </Answers>
-                        </Question>
                     </li>)}
                 </ul>
             </Wrapper>

@@ -5,7 +5,7 @@ import { theme } from './theme';
 
 const GlobalStyle = createGlobalStyle`
     body{
-      background: ${props => props.theme.colors.main};
+      background: linear-gradient( 180deg, ${props => props.theme.colors.BarelyGreen} 50%, ${props => props.theme.colors.TheBrownshirts} 100%);
       color: ${props => props.theme.colors.secondary};
       font-family: Baumans, sans-serif;
       margin: 0;
@@ -40,7 +40,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const StyledWrapper = styled.div`
-  background: linear-gradient(180deg, rgba(196, 196, 196, 0) 0%, rgba(196, 196, 196, 0.2) 100%);
+  background: linear-gradient( 180deg, ${props => props.theme.colors.BarelyGreen} 50%, ${props => props.theme.colors.TheBrownshirts} 100%);
   min-height: 100vh;
   width: 100%;
 `;
