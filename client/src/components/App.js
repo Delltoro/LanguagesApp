@@ -3,7 +3,7 @@ import { BrowserRouter , Route , Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import * as actions from '../actions/index';
-import Landing from './Landing';
+import Landing from './Landing/Landing';
 import Quiz from './Quiz/Quiz'
 import Header from './Header/Header';
 import Vocabulary from './Vocabulary/Vocabulary';
@@ -22,9 +22,23 @@ class App extends Component {
             <Container>
             <BrowserRouter>
                     <Header></Header>
-                    <Route exact path="/" component={Landing}></Route>
-                    <Route path="/train" component={Vocabulary}></Route>
-                    <Route path="/quiz" component={Quiz} ></Route>
+                    <Route 
+                        exact path="/"
+                        render={(props) => <Landing /> }
+                        >
+                    </Route>
+
+                    <Route 
+                        exact path="/train"
+                        render={(props) => <Vocabulary /> }
+                        >
+                    </Route>
+
+                    <Route 
+                        exact path="/quiz"
+                        render={(props) => <Quiz /> }
+                        >
+                    </Route>
             </BrowserRouter>
             </Container>
        );

@@ -4,16 +4,14 @@ export const listyle = { marginBottom: '1em' }
 
 export const Wrapper = styled.div`
     padding: 2em;
-    background-color: ${colors.darkBackground};
-    width: 100%;
-    height: 100%;
+    width: 50%;
 
 `
 
 export const Question = styled.h2`
     font-size: 2.5em;
     font-weight: 600; 
-    color: ${colors.black}; 
+    color: #2d3436;
     text-align: center; 
 `
 
@@ -33,10 +31,9 @@ export const Answer = styled.li`
     padding: 0.2em 0.6em;
     text-align: center;
     font-weight: bold;
-    color: ${colors.TheBrownshirts} ;
+    color: black;
     box-shadow: 0.25rem 0.25rem 0.6rem rgba(0,0,0,0.05), 0 0.5rem 1.125rem ${colors.whiteFont};
     :hover {
-    color: ${colors.TanBlonde};
 		cursor: pointer;
 	}
 

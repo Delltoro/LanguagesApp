@@ -5,12 +5,16 @@ import { theme } from './theme';
 
 const GlobalStyle = createGlobalStyle`
     body{
-      background: linear-gradient( 180deg, ${props => props.theme.colors.BarelyGreen} 50%, ${props => props.theme.colors.TheBrownshirts} 100%);
+      
+      /* background: #636e72;
+       */
+      background: #b2bec3;
+      z-index: 100;
       color: ${props => props.theme.colors.secondary};
       font-family: Baumans, sans-serif;
       margin: 0;
-      padding: 0;
-    }
+      /* padding: 2em 4em;*/
+    } 
 
     *, *::before, *::after{
         box-sizing: border-box;
@@ -40,9 +44,10 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const StyledWrapper = styled.div`
-  background: linear-gradient( 180deg, ${props => props.theme.colors.BarelyGreen} 50%, ${props => props.theme.colors.TheBrownshirts} 100%);
+  background: #b2bec3;
   min-height: 100vh;
   width: 100%;
+  margin-top: 2em;
 `;
 
 const Layout = ({ children }) => (

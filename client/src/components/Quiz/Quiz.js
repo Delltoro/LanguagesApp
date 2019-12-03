@@ -1,7 +1,7 @@
 import React , {Component} from 'react';
 import { Wrapper , Question , Answer , Answers , listyle} from './style';
 import { connect } from 'react-redux';
-
+import { colors } from '../../layout/colors';
 class Quiz extends Component {
 
     handleCheck(e , correct) {
@@ -11,15 +11,17 @@ class Quiz extends Component {
     render() {
         return(
             <Wrapper>
-                <ul>
+                {/* <ul>
                     {this.props.questions.map( t => 
                     <li key={t.id} style={listyle}>
                         <Question>
                             {t.questionText}
                         </Question>
+                        
                         <Answers>
                             {t.answers.map( (a , index) => 
-                                    <Answer key={index} value={a} onClick={(e) => {
+                                    <Answer 
+                                        key={index} value={a} onClick={(e) => {
                                         console.log(typeof(index));
                                         console.log(`Number 1 (value) + Number 1 (index) = ${t.correctAnswer + index}`)
                                         if(Number(index + 1) === t.correctAnswer) {
@@ -30,7 +32,18 @@ class Quiz extends Component {
                                     </Answer>)}
                             </Answers>
                     </li>)}
-                </ul>
+                </ul> */}
+                <Question>
+                    {this.props.questions[0].questionText}
+                </Question>
+                <Answers>
+                {this.props.questions[0].answers.map( (a , index) => 
+                        <Answer>
+                            {a}
+                        </Answer>
+                     )}
+                </Answers>
+                
             </Wrapper>
         );
     }
