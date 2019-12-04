@@ -1,6 +1,7 @@
 import { Section , validate } from '../model/vocabulary';
 
 module.exports = {
+
     getSection: async (req , res) => {
         try {
             const sections = await Section.find();
@@ -15,6 +16,7 @@ module.exports = {
         try {
             const section = await Section.findById(req.params.id);
             if(!section) return res.status(404).send('section not found');
+            return res.send(section);
         }catch(err) {
             res.status(500).send('An error occured');
         }

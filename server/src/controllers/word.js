@@ -16,6 +16,7 @@ module.exports = {
         try {
             const word = await Word.findById(req.params.id);
             if(!word) return res.status(404).send('Words not found');
+            return res.send(word);
         }catch(err) {
             res.status(500).send('An error occured');
         }
