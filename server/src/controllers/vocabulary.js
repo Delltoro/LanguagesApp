@@ -4,6 +4,7 @@ module.exports = {
 
     getSection: async (req , res) => {
         try {
+            console.log(Section);
             const sections = await Section.find();
             res.send(sections);
         }catch(err) {
@@ -14,6 +15,7 @@ module.exports = {
 
     getSectionById: async (req , res) => {
         try {
+            console.log(req.params.id);
             const section = await Section.findById(req.params.id);
             if(!section) return res.status(404).send('section not found');
             return res.send(section);

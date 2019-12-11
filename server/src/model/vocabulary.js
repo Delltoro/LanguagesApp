@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 import Joi from 'joi';
-import { Word } from './word';
 
 const vocabularySchema = new mongoose.Schema({
     
@@ -14,7 +13,7 @@ const vocabularySchema = new mongoose.Schema({
   
 })
 
-const Section = mongoose.model('Section' , vocabularySchema,'vocabulary')
+const Section = mongoose.model('Section' , vocabularySchema, 'vocabulary')
 
 function validateSection(section) {
     const schema = {

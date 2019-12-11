@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import { mongoURI } from '../config/keys';
+
 import Fawn from 'fawn';
 Fawn.init(mongoose);
 

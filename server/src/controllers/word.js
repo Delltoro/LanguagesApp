@@ -41,7 +41,7 @@ module.exports = {
         try {
             const word = await Word.findByIdAndRemove(req.params.id);
             if (!word) return res.status(404).send('word not found.');
-            res.send(word);
+            res.send(`Document was successfuly deleted. \n${word}`);
           } catch (error) {
               res.status(500).send('An error occured.');
           }
