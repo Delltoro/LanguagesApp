@@ -7,10 +7,10 @@ const vocabularySchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    words: {
-       type: [mongoose.Schema.Types.ObjectId]
-    }
-  
+    words: [{
+       plWord: String,
+       deWord: String
+    }]
 })
 
 const Section = mongoose.model('Section' , vocabularySchema, 'vocabulary')

@@ -7,7 +7,6 @@ require('./src/services/passport');
 import express from 'express';
 import cookieSession from 'cookie-session';
 import passport from 'passport';
-import words from './src/routes/words';
 import vocabulary from './src/routes/vocabulary';
 import questions from './src/routes/questions';
 import quizes from './src/routes/quizes';
@@ -31,7 +30,6 @@ require('./src/services/middlewares')(app);
 app.use('/api/vocabulary' , vocabulary);
 app.use('/api/questions' , questions);
 app.use('/api/quizes' , quizes);
-app.use('/api/words',words);
 
 app.set('port' , 8080);
 let server = app.listen(app.get('port') , () => {

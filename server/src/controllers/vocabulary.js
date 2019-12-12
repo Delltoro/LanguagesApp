@@ -29,9 +29,13 @@ module.exports = {
             console.log(req.body);
            const { error } = validate(req.body);
            if(error) return res.status(400).send(error.details[0].message);
+           const words = [];
+           req.body.words.map( obj => {
+               words.push(obj);
+           })
             const section = new Section({
                 section: req.body.section,
-                words: req.body.words,
+                words: words
             })
             await section.save();
 
