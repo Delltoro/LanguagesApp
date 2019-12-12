@@ -1,62 +1,185 @@
 import React , {Component} from 'react';
-import { Wrapper , Question , Answer , Answers , listyle} from './style';
 import { connect } from 'react-redux';
-import { colors } from '../../layout/colors';
+import {fetchQuestions , fetchVocabulary} from '../../actions/index';
+import { Jumbotron , Card } from 'react-bootstrap';
+import Quizz from 'react-quiz-component';
+import bg from './style.css'
 class Quiz extends Component {
 
-    handleCheck(e , correct) {
-        alert(`You choose ${e.target.value} , correct answer is ${correct}`);
-    }
-
-    render() {
-        return(
-            <Wrapper>
-                {/* <ul>
-                    {this.props.questions.map( t => 
-                    <li key={t.id} style={listyle}>
-                        <Question>
-                            {t.questionText}
-                        </Question>
-                        
-                        <Answers>
-                            {t.answers.map( (a , index) => 
-                                    <Answer 
-                                        key={index} value={a} onClick={(e) => {
-                                        console.log(typeof(index));
-                                        console.log(`Number 1 (value) + Number 1 (index) = ${t.correctAnswer + index}`)
-                                        if(Number(index + 1) === t.correctAnswer) {
-                                            alert(`Congratulations u gained ${t.pointsForCorrectAnswer} experience !`)
-                                        } else { alert(`Not good :()`)}
-                                    }}>
-                                        {a}
-                                    </Answer>)}
-                            </Answers>
-                    </li>)}
-                </ul> */}
-                <Question>
-                    {this.props.questions[0].questionText}
-                </Question>
-                <Answers>
-                {this.props.questions[0].answers.map( (a , index) => 
-                        <Answer>
-                            {a}
-                        </Answer>
-                     )}
-                </Answers>
-                
-            </Wrapper>
-        );
-    }
+    componentWillMount(){
+        this.props.fetchVocabulary();
+        this.props.fetchQuestions();
 
 }
 
-
-function mapStateToProps( state ) {
-    console.log(state);
-    return {
-        questions: state.questions
+    getList() {
+        if(this.props.vocabulary) {
+            console.log(this.props.vocabulary);
+        }
+        if(this.props.questions) {
+            console.log(this.props.questions);
+        }
+        
+        return <div>123</div>;
     }
+
+   render() {
+       console.log(bg);
+        return (
+            <Jumbotron style={{display: 'flex' , justifyContent: 'center' , minHeight: '60vh'}}>
+            
+                <Card style={{ width: '20rem' }}> 
+                    <Card.Body style={{display: 'flex' , justifyContent: 'center' }}>
+                        <Quizz quiz={quiz1} className={bg}></Quizz>
+                    </Card.Body>
+                </Card>
+
+            </Jumbotron>
+            )
+   }
 }
 
-export default connect(mapStateToProps)(Quiz);
 
+
+
+
+const mapDispatchToProps = dispatch => ({
+    fetchVocabulary: () => dispatch(fetchVocabulary()),
+    fetchQuestions: () => dispatch(fetchQuestions())
+});
+
+function mapStateToProps({ questions , vocabulary }) {
+    return { 
+             vocabulary: vocabulary,
+             questions: questions
+           };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps )(Quiz);
+
+const quiz1 =  {
+
+    "appLocale": {
+        "landingHeaderText": "<questionLength> Pytania",
+        "question": "Pytanie nr ",
+        "startQuizBtn": "Rozpocznij Quiz",
+        "resultFilterAll": "All",
+        "resultFilterCorrect": "Poprawna",
+        "resultFilterIncorrect": "Niepoprawna",
+        "nextQuestionBtn": "Następne",
+        "resultPageHeaderText": "Ukończyłes quiz. Odpowiedziałeś na  <correctIndexLength> z <questionLength> pytań."
+      } ,
+
+    "quizTitle": "Quiz - czasowniki",
+    "quizSynopsis": "Przetłumacz czasownik, tylko jedna odpowiedż jest poprawna",
+    "questions": [
+      {
+        "question": "Pracować",
+        "questionType": "text",
+        "answerSelectionType": "single",
+        "answers": [
+          "kriegen",
+          "decken",
+          "geben",
+          "arbeiten"
+        ],
+        "correctAnswer": "4",
+        "messageForCorrectAnswer": "Correct answer. Good job.",
+        "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
+        "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "point": "1"
+      },
+     
+      {
+        "question": "Dostawać, otrzymywać",
+        "questionType": "text",
+        "answerSelectionType": "single",
+        "answers": [
+            "kriegen",
+            "decken",
+            "geben",
+            "enden"
+        ],
+        "correctAnswer": "3",
+        "messageForCorrectAnswer": "Correct answer. Good job.",
+        "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
+        "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "point": "1"
+      },
+      {
+        "question": "Brać przysnic",
+        "questionType": "text",
+        "answerSelectionType": "single",
+        "answers": [
+            "chatten",
+            "dauern",
+            "enden",
+            "duschen"
+        ],
+        "correctAnswer": "4",
+        "messageForCorrectAnswer": "Correct answer. Good job.",
+        "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
+        "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "point": "1"
+      },
+
+    ]
+  } 
+
+  
+const quiz2 =  {
+    "quizTitle": "Quiz - części ciała",
+    "quizSynopsis": "Przetłumacz czasownik, tylko jedna odpowiedż jest poprawna",
+    "questions": [
+      {
+        "question": "Pracować",
+        "questionType": "text",
+        "answerSelectionType": "single",
+        "answers": [
+          "kriegen",
+          "decken",
+          "geben",
+          "arbeiten"
+        ],
+        "correctAnswer": "4",
+        "messageForCorrectAnswer": "Correct answer. Good job.",
+        "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
+        "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "point": "1"
+      },
+     
+      {
+        "question": "Dostawać, otrzymywać",
+        "questionType": "text",
+        "answerSelectionType": "single",
+        "answers": [
+            "kriegen",
+            "decken",
+            "geben",
+            "enden"
+        ],
+        "correctAnswer": "3",
+        "messageForCorrectAnswer": "Correct answer. Good job.",
+        "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
+        "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "point": "1"
+      },
+      {
+        "question": "Brać przysnic",
+        "questionType": "text",
+        "answerSelectionType": "single",
+        "answers": [
+            "chatten",
+            "dauern",
+            "enden",
+            "duschen"
+        ],
+        "correctAnswer": "4",
+        "messageForCorrectAnswer": "Correct answer. Good job.",
+        "messageForIncorrectAnswer": "Incorrect answer. Please try again.",
+        "explanation": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "point": "1"
+      },
+
+    ]
+  } 

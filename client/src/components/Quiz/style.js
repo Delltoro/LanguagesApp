@@ -3,9 +3,7 @@ import {colors} from '../../layout/colors';
 export const listyle = { marginBottom: '1em' }
 
 export const Wrapper = styled.div`
-    padding: 2em;
-    width: 50%;
-
+    min-height: '100vh';
 `
 
 export const Question = styled.h2`

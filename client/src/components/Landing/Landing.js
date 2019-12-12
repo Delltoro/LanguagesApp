@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button, Jumbotron , Card } from 'react-bootstrap';
-import { addButtonStyle , addImageStyle ,addCardStyle , addTextStyle , addHeaderStyle} from './style';
+import { Link } from 'react-router-dom';
+import { addButtonStyle , addImageStyle ,addCardStyle , addTextStyle , addHeaderStyle , addLinkStyle} from './style';
 const Landing = () => (
-    <Jumbotron style={{display: 'flex' , justifyContent: 'space-around'}}>
+          <Jumbotron style={{display: 'flex' , justifyContent: 'space-around'}}>
      <Card style={addCardStyle}>
             <Card.Img 
                        style={addImageStyle}
@@ -17,7 +18,8 @@ const Landing = () => (
         <Button 
                 variant="primary"
                 style={addButtonStyle}>
-                Przejdz</Button>
+                <Link style={addLinkStyle} to='/quiz'>Przejdz</Link>
+                </Button>
       </Card.Body>
     </Card>
 
@@ -31,7 +33,9 @@ const Landing = () => (
         <Card.Text style={addTextStyle}>
           Nauka nowych slówek pomoże ci składać bogatsze składniowo zdania ;)
         </Card.Text>
-        <Button variant="primary" style={addButtonStyle} >Przejdz</Button>
+        <Button variant="primary" style={addButtonStyle} >
+           <Link style={addLinkStyle} to='/train'>Przejdz</Link>
+        </Button>
       </Card.Body>
     </Card>
 
@@ -46,11 +50,14 @@ const Landing = () => (
         <Card.Text style={addTextStyle}>
           Gramatyka jest niezbędnym elementem nauki języka obcego, małymi kroczkami 10 minut dziennie wszystko można osiądgnąć
         </Card.Text>
-        <Button variant="primary" style={addButtonStyle}>Przejdz</Button>
+        <Button variant="primary" style={addButtonStyle}>
+              <Link style={addLinkStyle} to='/articles'>Przejdz</Link>
+        </Button>
       </Card.Body>
     </Card>
 
     </Jumbotron>
+  
 )
 
 export default Landing;

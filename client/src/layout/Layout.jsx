@@ -41,6 +41,26 @@ const GlobalStyle = createGlobalStyle`
       margin: 0;
       padding: 0;
     }
+    li {
+      border-bottom: 5px solid rgb(214, 48, 49);
+      text-align: 'justify';
+      font-family: 'Brush Script';
+      color: black;
+      font-weight: bold;
+      padding: 0.3rem 2.5rem;
+    }
+    td {
+      font-weight: bold;
+      font-style: italic;
+    }
+    div div div div button {
+      padding-bottom: 2.4rem !important;
+  
+    }
+    div div div {
+      color: black;
+      font-family: 'Mali cursive', 
+    }
 `;
 
 const StyledWrapper = styled.div`

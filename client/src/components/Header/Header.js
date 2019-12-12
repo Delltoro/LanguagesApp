@@ -12,10 +12,10 @@ class Header extends Component {
             case null:
                 return;
             case false:
-                return <a className="blue darken-4 waves-effect waves-light btn" href="/auth/google">Zaloguj się z kontem Google</a>
+                return <a className="blue darken-4 waves-effect waves-light btn" href="/auth/google">Zaloguj się</a>
                 // <Link style={menuItemStyle} to="/auth/google">Login With Google</Link>
             default:
-                return <a style={menuItemStyle} href="/api/logout">Wyloguj się</a>
+                return <a tabIndex="1" style={menuItemStyle} href="/api/logout">Wyloguj się</a>
 
         }
     }
@@ -23,38 +23,40 @@ class Header extends Component {
     render() {
         return (
             <section> 
+                <div style={{display: 'flex' , justifyContent: 'center' , alignItems: 'center'}}>
                 <SemanticHeader style={headerStyle}>
                         Nauka języka niemieckiego
-                        <Image src='/static/flags.jpg' size='massive'></Image>
                 </SemanticHeader>
+                <Image src='/static/flags.jpg' style={{width: '96px' , height: '64px' , marginLeft: '1.2em'}}></Image>
+                </div>
                 <Menu style={menuStyle}>
                     
                     <Menu.Item>
                         <Button>
-                            <Link style={menuItemStyle} to='/'>Strona główna</Link>
+                            <Link tabIndex="2" style={menuItemStyle} to='/'>Strona główna</Link>
                         </Button>
                     </Menu.Item>
 
                     <Menu.Item >
                         <Button>
-                            <Link style={menuItemStyle} to={this.props.auth ? '/train' : '/'}>Słownictwo</Link>
+                            <Link tabIndex="3" style={menuItemStyle} to={this.props.auth ? '/train' : '/'}>Słownictwo</Link>
                         </Button>
                     </Menu.Item>
 
                     <Menu.Item>
                         <Button>
-                            <Link style={menuItemStyle} to={this.props.auth ? '/articles' : '/'}>Artykuły</Link> 
+                            <Link tabIndex="4" style={menuItemStyle} to={this.props.auth ? '/articles' : '/'}>Artykuły</Link> 
                         </Button>
                     </Menu.Item>
 
                     <Menu.Item>
                         <Button>
-                            <Link style={menuItemStyle} to={this.props.auth ? '/quiz' : '/'}>Quizy</Link>
+                            <Link tabIndex="5" style={menuItemStyle} to={this.props.auth ? '/quiz' : '/'}>Quizy</Link>
                         </Button>
                     </Menu.Item>
                     <Menu.Item>
                         <Button>
-                            <Link style={menuItemStyle} to={this.props.auth ? '/test' : '/'}>Testy</Link>
+                            <Link tabIndex="6" style={menuItemStyle} to={this.props.auth ? '/test' : '/'}>Testy</Link>
                         </Button>
                     </Menu.Item>
 

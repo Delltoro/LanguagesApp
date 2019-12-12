@@ -6,15 +6,14 @@ import * as actions from '../actions/index';
 import Landing from './Landing/Landing';
 import Quiz from './Quiz/Quiz'
 import Header from './Header/Header';
-import Vocabulary from './Vocabulary/Vocabulary';
+import Vocabulary from './VocabularyMain/Vocabulary';
 import { Container } from 'semantic-ui-react'
-
+import SelectedVocabulary from './SelectedVocabulary/SelectedVocabulary'
 
 class App extends Component {
      
      componentDidMount() {
         this.props.fetchUser();
-        this.props.fetchQuestions();
     }
 
     render() {
@@ -25,20 +24,24 @@ class App extends Component {
                     <Route 
                         exact path="/"
                         render={(props) => <Landing /> }
-                        >
-                    </Route>
+                    ></Route>
 
                     <Route 
                         exact path="/train"
                         render={(props) => <Vocabulary /> }
-                        >
-                    </Route>
+                    ></Route>
 
                     <Route 
                         exact path="/quiz"
                         render={(props) => <Quiz /> }
-                        >
-                    </Route>
+                    ></Route>
+
+                    <Route 
+                        exact path="/vocabulary/numbers"
+                        component={SelectedVocabulary}
+                    ></Route>
+                
+
             </BrowserRouter>
             </Container>
        );

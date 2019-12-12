@@ -26,3 +26,8 @@ export const addTextStyle = {
     fontFamily: 'Lato',
     color: '#000'
 }
+
+export const addLinkStyle = {
+    color: 'white',
+    textDecoration: 'none'
+}
