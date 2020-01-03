@@ -15,6 +15,7 @@ module.exports = {
         try {
             const question = await Question.findById(req.params.id);
             if(!question) return res.status(404).send('Question not found');
+            return res.send(question);
         }catch(err) {
             res.status(500).send('An error occured');
         }

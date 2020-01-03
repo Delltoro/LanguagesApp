@@ -5,12 +5,13 @@ module.exports = {
         try {
             const quiz = await Quiz.findById(req.params.id);
             if(!quiz) return res.status(404).send('Quiz not found');
+            return res.send(quiz);
         }catch(err) {
             res.status(500).send('An error occured');
         }
     },
 
-    getQuiz: async (req , res) => {
+    getQuizes: async (req , res) => {
         try {
             const quizes = await Quiz.find();
             res.send(quizes);

@@ -11,7 +11,7 @@ export default function Root() {
     return (
         <Provider store={store}>
           <Layout>
-            <App/>
+             <App/>
           </Layout>
         </Provider>
     )

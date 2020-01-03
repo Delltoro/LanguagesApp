@@ -4,7 +4,7 @@ import quizController from '../controllers/quiz';
 
 router
     .route('/')
-    .get(quizController.getQuiz)
+    .get(quizController.getQuizes)
     .post(quizController.addQuiz)
 
 router

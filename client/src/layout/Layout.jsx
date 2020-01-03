@@ -5,12 +5,16 @@ import { theme } from './theme';
 
 const GlobalStyle = createGlobalStyle`
     body{
-      background: ${props => props.theme.colors.main};
+      
+      /* background: #636e72;
+       */
+      background: #b2bec3;
+      z-index: 100;
       color: ${props => props.theme.colors.secondary};
       font-family: Baumans, sans-serif;
       margin: 0;
-      padding: 0;
-    }
+      /* padding: 2em 4em;*/
+    } 
 
     *, *::before, *::after{
         box-sizing: border-box;
@@ -37,12 +41,25 @@ const GlobalStyle = createGlobalStyle`
       margin: 0;
       padding: 0;
     }
+    li {
+      border-bottom: 5px solid rgb(214, 48, 49);
+      text-align: 'justify';
+      font-family: 'Brush Script';
+      color: black;
+      font-weight: bold;
+      padding: 0.3rem 2.5rem;
+    }
+    td {
+      font-weight: bold;
+      font-style: italic;
+    }
 `;
 
 const StyledWrapper = styled.div`
-  background: linear-gradient(180deg, rgba(196, 196, 196, 0) 0%, rgba(196, 196, 196, 0.2) 100%);
+  background: #b2bec3;
   min-height: 100vh;
   width: 100%;
+  margin-top: 2em;
 `;
 
 const Layout = ({ children }) => (

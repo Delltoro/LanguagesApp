@@ -3,31 +3,47 @@ import { BrowserRouter , Route , Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import * as actions from '../actions/index';
-import Landing from './Landing';
+import Landing from './Landing/Landing';
 import Quiz from './Quiz/Quiz'
-import Header from './Header';
-import Vocabulary from './Vocabulary';
-
+import Header from './Header/Header';
+import Vocabulary from './VocabularyMain/Vocabulary';
+import { Container } from 'semantic-ui-react'
+import SelectedVocabulary from './SelectedVocabulary/SelectedVocabulary'
 
 class App extends Component {
      
      componentDidMount() {
         this.props.fetchUser();
-        this.props.fetchQuestions();
     }
 
     render() {
         return (
-            <div className="container">
+            <Container>
             <BrowserRouter>
-                <div>
-                    <Header style={{marginTop: '2rem'}}></Header>
-                    <Route exact path="/" component={Landing}></Route>
-                    <Route path="/train" component={Vocabulary}></Route>
-                    <Route path="/quiz" component={Quiz} ></Route>
-                </div>
+                    <Header></Header>
+                    <Route 
+                        exact path="/"
+                        render={(props) => <Landing /> }
+                    ></Route>
+
+                    <Route 
+                        exact path="/train"
+                        render={(props) => <Vocabulary /> }
+                    ></Route>
+
+                    <Route 
+                        exact path="/quiz"
+                        render={(props) => <Quiz /> }
+                    ></Route>
+
+                    <Route 
+                        exact path="/vocabulary/numbers"
+                        component={SelectedVocabulary}
+                    ></Route>
+                
+
             </BrowserRouter>
-            </div>
+            </Container>
        );
     };
 

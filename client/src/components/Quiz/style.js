@@ -1,38 +1,37 @@
 import styled from 'styled-components';
 import {colors} from '../../layout/colors';
+export const listyle = { marginBottom: '1em' }
 
 export const Wrapper = styled.div`
-    padding: 2em;
-    background-color: ${colors.darkBackground};
-    width: 100%;
-    height: 100%;
-
+    min-height: '100vh';
 `
 
 export const Question = styled.h2`
-    font-size: 26px;
-    font-weight: 300; 
-    color: #ffcc66; 
-    margin: 0 0 24px;
+    font-size: 2.5em;
+    font-weight: 600; 
+    color: #2d3436;
     text-align: center; 
-    margin-bottom: 2em;
 `
 
 export const Answers = styled.ul`
     font-size: 16px;
     font-weight: 500;
-    color: #ffcc66;
     display: flex;
     justify-content: space-around;
     padding: 2em 0;
-    border: 3px solid #ffcc66;
+    border-bottom: 1px solid ${colors.greyFont};
+    font-family: "Mali cursive";
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
 `
 
 export const Answer = styled.li`
-    padding-right: 6em;
-    border-right: 2px dashed #ffcc66;
+    padding: 0.2em 0.6em;
+    text-align: center;
+    font-weight: bold;
+    color: black;
+    box-shadow: 0.25rem 0.25rem 0.6rem rgba(0,0,0,0.05), 0 0.5rem 1.125rem ${colors.whiteFont};
     :hover {
-		color: #ed1212;
 		cursor: pointer;
 	}
 
