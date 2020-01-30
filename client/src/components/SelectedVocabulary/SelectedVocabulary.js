@@ -7,22 +7,20 @@ import {fetchSection} from '../../actions/index';
 
 class SelectedVocabulary extends Component{
   
-    
     componentWillMount(){
-            this.props.fetchSection('5df16446e7835725d82b7be2');
+            this.props.fetchSection(this.props.id);
     }
   
 
     getList() {
         let section;
         if (this.props.section) {
-          section =  this.props.section.words.map( (words , index) => {
+            section =  this.props.section.words.map( (words , index) => {
               return (
                   <tr>
                       <td>{index}</td>
                       <td>{words.plWord}</td>
                       <td>{words.deWord}</td>
-
                   </tr>
               )
           })
@@ -36,10 +34,9 @@ class SelectedVocabulary extends Component{
     }
 
     render(){
-        console.log(this.props.section);
          return (
             <Jumbotron style={container}>
-                 <Table style={{ width: '80%', border: '2px dashed rgb(214, 48, 49)'}} striped bordered hover >
+                 <Table style={{ width: '80%'}} striped hover >
                     <thead>
                         <tr>
                         <th>#</th>

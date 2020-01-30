@@ -7,6 +7,9 @@ import Landing from './Landing/Landing';
 import Quiz from './Quiz/Quiz'
 import Header from './Header/Header';
 import Vocabulary from './VocabularyMain/Vocabulary';
+import Grammar from './GrammarMain/Grammar';
+import Texts from './TextsMain/Texts';
+import Text from './TextsMain/Text';
 import { Container } from 'semantic-ui-react'
 import SelectedVocabulary from './SelectedVocabulary/SelectedVocabulary'
 
@@ -37,11 +40,34 @@ class App extends Component {
                     ></Route>
 
                     <Route 
-                        exact path="/vocabulary/numbers"
-                        component={SelectedVocabulary}
+                        exact path="/grammar"
+                        render={(props) => <Grammar /> }
                     ></Route>
-                
 
+                    <Route 
+                        exact path="/texts"
+                        render={(props) => <Texts /> }
+                    ></Route>
+
+                    <Route 
+                        exact path="/vocabulary/numbers"
+                        render={(props) => <SelectedVocabulary {...props} id={"5df16446e7835725d82b7be2"} />}
+                    ></Route>
+
+                    <Route 
+                        exact path="/vocabulary/body"
+                        render={(props) => <SelectedVocabulary {...props} id={"5df18a72830313462cd8145a"} />}
+                    ></Route>
+
+                    <Route 
+                        exact path="/vocabulary/family"
+                        render={(props) => <SelectedVocabulary {...props} id={"5e31d3242fb92a0d04065c78"} />}
+                    ></Route>
+
+                    <Route
+                        exact path="/texts/1"
+                        component={Text}
+                    ></Route>
             </BrowserRouter>
             </Container>
        );

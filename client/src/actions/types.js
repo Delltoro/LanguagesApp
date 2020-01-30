@@ -1,5 +1,8 @@
 export const FETCH_USER = 'fetch_user';
+export const FETCH_QUIZ = 'fetch_quiz';
+export const FETCH_QUIZES = 'fetch_quizes';
 export const FETCH_QUESTIONS = 'fetch_questions';
+export const FETCH_QUESTION = 'fetch_question';
 export const FETCH_SECTION = 'fetch_section';
 export const FETCH_VOCABULARY = 'fetch_vocabulary';
 export const FETCH_WORD = 'fetch_word';

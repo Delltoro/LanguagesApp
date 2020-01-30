@@ -5,7 +5,6 @@ import { Jumbotron } from 'react-bootstrap';
 
 class Vocabulary extends Component {
 
-
     render() {
         return (
             <Jumbotron style={{display: 'flex' , justifyContent: 'space-around'}}>
@@ -14,25 +13,20 @@ class Vocabulary extends Component {
                          textContent = "Naucz sie liczyc po niemiecku ! ;)"
                          source = "/static/numbers.jpg"
                          path = "vocabulary/numbers"
-                         vocabulary = {this.props.vocabulary}
                     >
                     </Card>
-                   
                     <Card 
                         textTitle   = "Rodzina"
                         textContent = "Poznaj nazwy czlonkow rodziny"
                         source = "/static/family.jpg"
                         path = "vocabulary/family"
-                        vocabulary = {this.props.vocabulary}
                         >
                     </Card>
-            
                     <Card 
                         textTitle   = "Czesci ciala"
-                        textContent = "ram pma pam pam pam pam"
+                        textContent = "Poznaj nazwy części ciała"
                         source = "/static/cialo.jpg"
                         path = "vocabulary/body"
-                        vocabulary = {this.props.vocabulary}
                         >
                     </Card>
         </Jumbotron>

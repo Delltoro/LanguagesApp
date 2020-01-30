@@ -45,7 +45,7 @@ class Header extends Component {
 
                     <Menu.Item>
                         <Button>
-                            <Link tabIndex="4" style={menuItemStyle} to={this.props.auth ? '/articles' : '/'}>Artykuły</Link> 
+                            <Link tabIndex="4" style={menuItemStyle} to={this.props.auth ? '/texts' : '/'}>Teksty</Link> 
                         </Button>
                     </Menu.Item>
 
@@ -56,7 +56,7 @@ class Header extends Component {
                     </Menu.Item>
                     <Menu.Item>
                         <Button>
-                            <Link tabIndex="6" style={menuItemStyle} to={this.props.auth ? '/test' : '/'}>Testy</Link>
+                            <Link tabIndex="6" style={menuItemStyle} to={this.props.auth ? '/grammar' : '/'}>Gramatyka</Link>
                         </Button>
                     </Menu.Item>
 

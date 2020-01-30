@@ -41,17 +41,21 @@ const GlobalStyle = createGlobalStyle`
       margin: 0;
       padding: 0;
     }
+    
     li {
-      border-bottom: 5px solid rgb(214, 48, 49);
       text-align: 'justify';
       font-family: 'Brush Script';
-      color: black;
+      color: rgb(214, 48, 49);
       font-weight: bold;
-      padding: 0.3rem 2.5rem;
-    }
+      padding: 0.3rem 1.5rem;
+    } 
+
     td {
       font-weight: bold;
       font-style: italic;
+    }
+    .react-quiz-container .questionWrapper .btn {
+      padding-bottom: 2em;
     }
 `;
 
