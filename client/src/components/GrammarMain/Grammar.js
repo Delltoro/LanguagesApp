@@ -12,22 +12,8 @@ class Grammar extends React.Component {
                          textTitle   = "Odmiana Ich"
                          textContent = "Naucz sie odmieniać być po niemiecku ! ;)"
                          source = "/static/ich.jpg"
-                         path = "grammar/bin"
+                         path = "grammar/sein"
                     >
-                    </Card>
-                    <Card 
-                        textTitle   = "Odmiana haben"
-                        textContent = "Poznaj nazwy czlonkow rodziny"
-                        source = "/static/haben.jpg"
-                        path = "grammar/habe"
-                        >
-                    </Card>
-                    <Card 
-                        textTitle   = "Odmiana schreiben"
-                        textContent = "Poznaj nazwy części ciała"
-                        source = "/static/schreiben.jpg"
-                        path = "grammar/schreiben"
-                        >
                     </Card>
         </Jumbotron>
         );

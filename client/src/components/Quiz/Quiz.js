@@ -10,21 +10,25 @@ class Quiz extends Component {
       this.props.fetchQuizes();
       this.props.fetchQuestions();
   }
-
+  
   getList() {
     let questions;
     if (this.props.questions) {
      questions = this.props.questions.map( (que) => {
         return (
-            <div style={{marginBottom: '4em', width: '50%'}}>
-                <h6 style={{color: 'black',fontWeight: 'bold', textAlign: 'center'}}>{que.questionText}</h6>
-                <ul style={{display: 'flex', justifyContent: 'flex-start'}}>
-                    <li>{que.answers[0]}</li>
-                    <li>{que.answers[1]}</li>
-                    <li>{que.answers[2]}</li>
-                    <li>{que.answers[3]}</li>
+            <div style={{marginBottom: '2em',paddingBottom: '2em', width: '60%', borderBottom: '6px groove rgba(214, 48, 49,0.41)'}}>
+                <h6 style={{color: 'black',fontWeight: 'bold', textAlign: 'left'}}>{que.questionText}</h6>
+                <ul>
+                    <li>1 {'\u15CE'}  {que.answers[0]}</li>
+                    <li>2 {'\u15CE'}  {que.answers[1]}</li>
+                    <li>3 {'\u15CE'}  {que.answers[2]}</li>
+                    {console.log(typeof(que.answers[3]))}
+                    {que.answers[3] !== undefined &&
+                    <li>4 {'\u15CE'}  {que.answers[3]}</li>
+                    }
+                    <li>Poprawna odpowiedź: {que.correctAnswer}</li>
+                    <li>Punkty za poprawną odpowiedź: {que.pointsForCorrectAnswer}</li>
                 </ul>
-                
             </div>
         );
       })
@@ -43,16 +47,18 @@ class Quiz extends Component {
         questions = this.getList();
      }
       return (
-            <Jumbotron style={{display: 'flex' , justifyContent: 'center' , minHeight: '60vh'}}>
-                <ul>
-                    {questions}
-                </ul>
+            <Jumbotron style={{display: 'flex'}}>
+                <div>
+                   <h3>BAZA PYTAŃ APLIKACJI</h3>                
+                   {questions}
+                </div>
+                <div>
                 <Card style={{ width: '35rem', maxHeight: '40rem' }}> 
                     <Card.Body style={{display: 'flex' , justifyContent: 'center' }}>
                         <Quizz quiz={quiz1} className={bg}></Quizz>
                     </Card.Body>
                 </Card>
-
+                </div>
             </Jumbotron>
             )
    }

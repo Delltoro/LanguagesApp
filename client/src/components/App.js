@@ -12,7 +12,7 @@ import Texts from './TextsMain/Texts';
 import Text from './TextsMain/Text';
 import { Container } from 'semantic-ui-react'
 import SelectedVocabulary from './SelectedVocabulary/SelectedVocabulary'
-
+import SelectedGrammar from './SelectedGrammar/SelectedGrammar';
 class App extends Component {
      
      componentDidMount() {
@@ -26,27 +26,27 @@ class App extends Component {
                     <Header></Header>
                     <Route 
                         exact path="/"
-                        render={(props) => <Landing /> }
+                        render={() => <Landing /> }
                     ></Route>
 
                     <Route 
                         exact path="/train"
-                        render={(props) => <Vocabulary /> }
+                        render={() => <Vocabulary /> }
                     ></Route>
 
                     <Route 
                         exact path="/quiz"
-                        render={(props) => <Quiz /> }
+                        render={() => <Quiz /> }
                     ></Route>
 
                     <Route 
                         exact path="/grammar"
-                        render={(props) => <Grammar /> }
+                        render={() => <Grammar /> }
                     ></Route>
 
                     <Route 
                         exact path="/texts"
-                        render={(props) => <Texts /> }
+                        render={() => <Texts /> }
                     ></Route>
 
                     <Route 
@@ -63,6 +63,12 @@ class App extends Component {
                         exact path="/vocabulary/family"
                         render={(props) => <SelectedVocabulary {...props} id={"5e31d3242fb92a0d04065c78"} />}
                     ></Route>
+                    
+                    <Route 
+                        exact path="/grammar/sein"
+                        render={(props) => <SelectedGrammar {...props} id={""} />}
+                    ></Route>
+
 
                     <Route
                         exact path="/texts/1"
@@ -71,7 +77,7 @@ class App extends Component {
             </BrowserRouter>
             </Container>
        );
-    };
+    }
 
 }
 
